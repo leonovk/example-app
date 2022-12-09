@@ -2,7 +2,6 @@
 
 require 'sinatra'
 require 'sinatra/json'
-require 'dotenv-vault/load'
 
 class App < Sinatra::Base
   get '/' do
