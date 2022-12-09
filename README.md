@@ -8,7 +8,7 @@
 
 ## NginX
 
-`
+```
 upstream sinatra {
 server 0.0.0.0:3000;
 }
@@ -30,4 +30,4 @@ proxy_pass http://sinatra;
 }
 
 }
-`
+```
