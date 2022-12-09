@@ -1,0 +1,6 @@
+AllCops:
+  Exclude:
+    - config/puma.rb
+
+Style/Documentation:
+  Enabled: false

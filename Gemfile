@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "sinatra"
-gem "puma"
-gem "puma-daemon"
+gem 'dotenv-vault'
+gem 'puma'
+gem 'puma-daemon'
+gem 'rubocop'
+gem 'rspec'
+gem 'sinatra'
+gem 'sinatra-contrib'

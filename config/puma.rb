@@ -1,8 +1,11 @@
 require 'puma-daemon'
-root = "#{Dir.getwd}"
-environment "production"
+require 'dotenv-vault/load'
 
-daemonize true
+root = "#{Dir.getwd}"
+
+environment ENV['ENVIRONMENT']
+
+daemonize true if ENV['ENVIRONMENT'] == 'production'
 
 workers 3
 preload_app!
