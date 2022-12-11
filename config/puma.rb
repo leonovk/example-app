@@ -1,8 +1,6 @@
 require 'puma-daemon'
 require 'dotenv-vault/load'
 
-root = "#{Dir.getwd}"
-
 if ENV['ENVIRONMENT'].nil?
   environment 'development'
 else
