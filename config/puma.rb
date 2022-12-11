@@ -1,9 +1,12 @@
 require 'puma-daemon'
 require 'dotenv-vault/load'
-
 root = "#{Dir.getwd}"
 
-environment ENV['ENVIRONMENT']
+if ENV['ENVIRONMENT'].nil?
+  environment 'development'
+else
+  environment ENV['ENVIRONMENT']
+end
 
 daemonize true if ENV['ENVIRONMENT'] == 'production'
 
