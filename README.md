@@ -1,12 +1,30 @@
 # example-app
-## Рыба для приложений на Sinatra
+## Инструкция по разворачиванию приложений на Синатре
 
-- Предварительно установит ruby
+### Локально:
+
+- `git clone https://github.com/leonovk/example-app.git`
+- `cd example-app`
 - `bundle install`
-- запуск пумы `puma -t 8:32 -w 3`
-- Удалить все процессы пумы можно `killall puma`
+- `bundle exec puma`
 
-## NginX
+### На сервере Ubuntu 22.04 + NginX:
+
+(для начала создайте юзера и залогиньтесь в него)
+(для примера будет юзер deploy)
+
+- `sudo apt update`
+- `sudo apt install git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev`
+- `curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash`
+- `echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc`
+- `echo 'eval "$(rbenv init -)"' >> ~/.bashrc`
+- `source ~/.bashrc`
+- `rbenv install 3.1.2`
+- `rbenv global 3.1.2`
+- `echo "gem: --no-document" > ~/.gemrc`
+- `gem install bundler`
+- `sudo apt install nginx`
+- `sudo nano /etc/nginx/sites-enabled/default`
 
 ```
 upstream sinatra {
@@ -31,3 +49,13 @@ proxy_pass http://sinatra;
 
 }
 ```
+
+- `sudo service nginx restart`
+
+(Если нет ошибок все ок, если есть, земля пухом)
+
+- `git clone https://github.com/leonovk/example-app.git`
+- `cd example-app`
+-  Переименуйте файл '.env.example' в '.env'
+- `bundle install`
+- `bundle exec puma`
