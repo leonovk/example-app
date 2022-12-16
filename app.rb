@@ -16,4 +16,3 @@ class App < Sinatra::Base
     json({ 'a' => 'b' })
   end
 end
-
